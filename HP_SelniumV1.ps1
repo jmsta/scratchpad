@@ -3,8 +3,7 @@ $filePath="c:\temp\hp\"
 $comps = (get-adcomputer -filter * |where {$_.name -like "MX*" -or $_.name -like "5CG*" -or $_.name -like "2U*" }).name|Foreach{$_.Substring(0, $_.Length - 1) }
 
 Import-Module Selenium
- 
-#$driver = Start-SeFirefox  
+
 $driver = Start-SeFirefox
 
 foreach($comp in $comps|select -first 50  ){
